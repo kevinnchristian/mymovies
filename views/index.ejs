@@ -28,7 +28,7 @@
       <% movies.forEach(movie => { %>
       <div class="col-md-4">
         <div class="card">
-          <img src="/images/<%= movie.poster %>" class="card-img card-img-full" alt="...">
+          <img src="/images/upload/<%= movie.poster %>" class="card-img card-img-full" alt="...">
           <div class="card-body">
             <h5 class="card-title"><%= movie.title %></h5>
             <p class="card-text"><%= movie.description %></p>
@@ -60,10 +60,10 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="" method="post">
+          <form action="/cadastrar" enctype="multipart/form-data" method="POST">
             <div class="form-group">
               <label for="">Nome do Filme</label>
-              <input class="form-control" type="text" name="name" id="">
+              <input class="form-control" type="text" name="title" id="">
             </div>
             <div class="form-group">
               <label for="">Descrição do Filme</label>
@@ -75,14 +75,14 @@
             </div>
             <div class="form-group">
               <label for="">Já assistiu o filme?</label>
-              <input class="form-control" type="checkbox" name="viewMovie" id="">
+              <input class="form-control" type="checkbox" name="watched" id="">
             </div>
-          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary">Finalizar</button>
+          <button type="submit" class="btn btn-primary">Finalizar</button>
         </div>
+        </form>
       </div>
     </div>
   </div>

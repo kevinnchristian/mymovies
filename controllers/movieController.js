@@ -1,8 +1,8 @@
-const { Movie } = require("../models");
+const { Movies } = require("../models");
 
 const movieController = {
   index: async (req, res) => {
-    const movies = await Movie.findAll();
+    const movies = await Movies.findAll();
     
     return res.render("index", { movies });
   },
@@ -12,7 +12,7 @@ const movieController = {
     // Receber info do arquivo passada pelo multer.
     const [poster] = req.files;
     // Cadastrando o filme no banco por meio do metodo create e passando as infos do formulario.
-    const newMovie = await Movie.create({
+    const newMovie = await Movies.create({
       title,
       poster: poster.filename,
       description,
@@ -30,7 +30,7 @@ const movieController = {
     // Recebendo o id do filme que queremos marcar como assitido.
     const { id } = req.params;
     // Atualizando no banco que ja assitiu o filme.
-    const movie = await Movie.update(
+    const movie = await Movies.update(
       {
         watched: 1
       },

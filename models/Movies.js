@@ -1,6 +1,6 @@
   module.exports = (sequelize, DataTypes) => {
-  const Movie = sequelize.define(
-    "Movie",
+  const Movies = sequelize.define(
+    "Movies",
     {
       id: {
         type: DataTypes.INTEGER,
@@ -27,6 +27,6 @@
      updatedAt: DataTypes.DATE
     });
 
-  return Movie;
+  return Movies;
 
 };
