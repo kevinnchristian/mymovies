@@ -1,9 +1,16 @@
-var express = require('express');
-var router = express.Router();
+const express = require("express");
+// config multer.
+const upload = require("../config/upload");
+const movieController = require("../controllers/movieController");
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const router = express.Router();
+
+router.get("/", movieController.index);
+
+// Rota que recebe as info do filme e o poster, chamando primeiro o multer depois o controller.
+router.post("/cadastrar", upload.any(), movieController.store);
+
+// Rota para ver filme que ja assistiu.
+router.get("/assitir/:id", movieController.checkWatched);
 
 module.exports = router;

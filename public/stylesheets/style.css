@@ -1,3 +1,11 @@
+html, body * {
+  outline: none;
+}
+
+.bg-movie {
+  background: rgb(113, 89, 193);
+}
+
 .card-img-full {
   height: 200px;
   object-fit: contain;
@@ -19,6 +27,7 @@
   display: none;
   cursor: pointer;
 }
+
 @media (min-width: 800px) {
   .card {
     height: 400px;
